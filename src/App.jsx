@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
  
-// Dropdown component
+// Full-width Dropdown component
 function Dropdown({ label, children }) {
   const [open, setOpen] = useState(false);
-  const buttonRef = useRef(null);
+  const dropdownRef = useRef(null);
  
-  // Handlers for mouse and keyboard
+  // Show/hide handlers
   const handleMouseEnter = () => setOpen(true);
   const handleMouseLeave = () => setOpen(false);
   const handleFocus = () => setOpen(true);
@@ -24,9 +24,9 @@ function Dropdown({ label, children }) {
       onMouseLeave={handleMouseLeave}
       onFocus={handleFocus}
       onBlur={handleBlur}
+      ref={dropdownRef}
     >
       <button
-        ref={buttonRef}
         className="hover:text-blue-600 focus:text-blue-600 px-2 py-1 flex items-center"
         aria-haspopup="true"
         aria-expanded={open}
@@ -48,15 +48,13 @@ xmlns="http://www.w3.org/2000/svg"
       </button>
       {/* Full-width dropdown */}
       <div
-        className={`fixed left-0 right-0 top-[64px] bg-white shadow-xl z-50 transition-all duration-200 ${
-          open
-            ? "opacity-100 visible translate-y-0"
-            : "opacity-0 invisible -translate-y-2"
-        }`}
-        style={{ minHeight: open ? "auto" : 0 }}
-        tabIndex="-1"
+        className={`${
+          open ? "block" : "hidden"
+        } absolute left-0 right-0 top-full bg-white shadow-xl z-50`}
       >
-        {open && children}
+        <div className="container mx-auto px-8 py-8">
+          {children}
+        </div>
       </div>
     </li>
   );
@@ -79,3 +77,26 @@ src="https://cdn.parcel2go.com/42c5534b-0f47-4342-80f0-8f21203f0669/layout/p2g_l
         {/* Main nav */}
         <ul className="flex items-center space-x-6 text-gray-800 font-medium">
           <li>
+            <a href="/business" className="hover:text-blue-600">
+              Business
+            </a>
+          </li>
+          <li>
+            <a href="/quick-quote" className="hover:text-blue-600">
+              Get a Quote
+            </a>
+          </li>
+          {/* SERVICES DROPDOWN */}
+          <Dropdown label="Services">
+            <div className="grid grid-cols-4 gap-10">
+              {/* Range of Couriers */}
+              <div>
+                <h4 className="text-base font-semibold mb-3 text-gray-900">Range of Couriers</h4>
+                <ul>
+                  <li><a href="/couriers" className="block py-1 text-sm text-gray-700 hover:text-blue-600">All Couriers</a></li>
+                  <li><a href="/couriers/royal-mail" className="block py-1 text-sm text-gray-700 hover:text-blue-600">Royal Mail <span className="bg-blue-100 text-blue-700 px-1 ml-1 rounded text-xs">New</span></a></li>
+                  <li><a href="/couriers/fedex" className="block py-1 text-sm text-gray-700 hover:text-blue-600">FedEx Express</a></li>
+                  <li><a href="/couriers/parcelforce" className="block py-1 text-sm text-gray-700 hover:text-blue-600">Parcelforce</a></li>
+                  <li><a href="/couriers/ups" className="block py-1 text-sm text-gray-700 hover:text-blue-600">UPS</a></li>
+                  <li><a href="/couriers/access-point" className="block py-1 text-sm text-gray-700 hover:text-blue-600">UPS Access Point</a></li>
+                  <li><a href="/couriers/evri" className="block py-1 text-sm text-gray-700 hover:text-blue-600">Evri</a></li>
