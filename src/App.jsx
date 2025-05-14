@@ -5,7 +5,8 @@ const NavBar = () => {
 
   return (
     <nav className="bg-white shadow">
-      <div className="container mx-auto px-4">
+      {/* Make this container the positioning context */}
+      <div className="container mx-auto px-4 relative">
         <div className="flex items-center justify-between py-3">
           {/* Logo */}
           <a href="#">
@@ -26,10 +27,11 @@ const NavBar = () => {
             </a>
 
             {/* Services dropdown */}
-            <div className="relative group">
+            <div className="group inline-block">
               <button className="text-gray-600 hover:text-blue-600">
                 Services
               </button>
+              {/* Now absolute to the full-width container above */}
               <div className="absolute top-full left-0 w-full bg-white shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50">
                 <div className="container mx-auto px-4 py-4">
                   <div className="grid grid-cols-4 gap-6">
@@ -42,7 +44,9 @@ const NavBar = () => {
                       {/* …links */}
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">International Parcel Delivery</h4>
+                      <h4 className="font-semibold mb-2">
+                        International Parcel Delivery
+                      </h4>
                       {/* …links */}
                     </div>
                     <div>
@@ -59,7 +63,7 @@ const NavBar = () => {
             </a>
 
             {/* Regular Senders dropdown */}
-            <div className="relative group">
+            <div className="group inline-block">
               <button className="text-gray-600 hover:text-blue-600">
                 Regular Senders
               </button>
@@ -67,11 +71,15 @@ const NavBar = () => {
                 <div className="container mx-auto px-4 py-4">
                   <div className="grid grid-cols-2 gap-6">
                     <div>
-                      <h4 className="font-semibold mb-2">Resources for Regular Senders</h4>
+                      <h4 className="font-semibold mb-2">
+                        Resources for Regular Senders
+                      </h4>
                       {/* …links */}
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">Marketplace Integrations</h4>
+                      <h4 className="font-semibold mb-2">
+                        Marketplace Integrations
+                      </h4>
                       {/* …links */}
                     </div>
                   </div>
