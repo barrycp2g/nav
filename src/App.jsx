@@ -13,62 +13,75 @@ const NavBar = () => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
   };
 
-  // Dropdown data
+  // Dropdown data for Services
   const servicesDropdown = {
     title: "Services",
     columns: [
       {
-        title: "Popular Services",
-        links: [
-          { text: "Parcel Delivery", href: "#" },
-          { text: "Pallet Delivery", href: "#" },
-          { text: "International Delivery", href: "#" },
-          { text: "Next Day Delivery", href: "#" },
-          { text: "Same Day Delivery", href: "#" },
-        ]
+        title: "Range of Couriers",
+        links: Array(19).fill({ text: "Courier Service", href: "#" })
       },
       {
-        title: "More Services",
-        links: [
-          { text: "Euro 48 Delivery", href: "#" },
-          { text: "UK Next Day Delivery", href: "#" },
-          { text: "UK Economy Delivery", href: "#" },
-          { text: "Heavy Parcel Delivery", href: "#" },
-          { text: "Large Parcel Delivery", href: "#" },
-        ]
+        title: "UK Parcel Delivery",
+        links: Array(19).fill({ text: "UK Delivery Service", href: "#" })
       },
       {
-        title: "Specialist Services",
-        links: [
-          { text: "eBay Delivery", href: "#" },
-          { text: "Amazon Delivery", href: "#" },
-          { text: "Etsy Delivery", href: "#" },
-          { text: "DDP Shipping", href: "#" },
-          { text: "Duty Calculator", href: "#" },
-        ]
+        title: "International Parcel Delivery",
+        links: Array(19).fill({ text: "International Delivery Service", href: "#" })
+      },
+      {
+        title: "Delivery Tools",
+        links: Array(19).fill({ text: "Delivery Tool", href: "#" })
       }
     ]
   };
 
+  // Dropdown data for Regular Senders
   const regularSendersDropdown = {
     title: "Regular Senders",
     columns: [
       {
-        title: "For Business",
+        title: "Resources",
         links: [
-          { text: "Business Account", href: "#" },
-          { text: "Business Delivery", href: "#" },
-          { text: "API Integration", href: "#" },
-          { text: "Bulk Upload", href: "#" },
+          { text: "What is Smart Send", href: "#" },
+          { text: "Business Hub", href: "#" },
+          { text: "Business Accounts", href: "#" },
+          { text: "Royal Mail OBA", href: "#" },
+          { text: "Bulk Letter Sending", href: "#" },
+          { text: "Become a VIP", href: "#" },
         ]
       },
       {
-        title: "For Ecommerce",
+        title: "Marketplace Integrations",
         links: [
-          { text: "eBay Integration", href: "#" },
-          { text: "Amazon Integration", href: "#" },
-          { text: "Etsy Integration", href: "#" },
-          { text: "Shopify Integration", href: "#" },
+          { text: "eBay", href: "#" },
+          { text: "Amazon", href: "#" },
+          { text: "Etsy", href: "#" },
+          { text: "Shopify", href: "#" },
+          { text: "TikTok", href: "#" },
+          { text: "Wix", href: "#" },
+        ]
+      },
+      {
+        title: "",
+        links: [
+          { text: "eBay", href: "#" },
+          { text: "Amazon", href: "#" },
+          { text: "Etsy", href: "#" },
+          { text: "Shopify", href: "#" },
+          { text: "TikTok", href: "#" },
+          { text: "Wix", href: "#" },
+        ]
+      },
+      {
+        title: "",
+        links: [
+          { text: "eBay", href: "#" },
+          { text: "Amazon", href: "#" },
+          { text: "Etsy", href: "#" },
+          { text: "Shopify", href: "#" },
+          { text: "TikTok", href: "#" },
+          { text: "Wix", href: "#" },
         ]
       }
     ]
@@ -116,7 +129,7 @@ const NavBar = () => {
                 </button>
                 {activeDropdown === 'services' && (
                   <div
-                    className="absolute z-10 left-0 mt-2 w-96 bg-white shadow-lg rounded-md p-4 grid grid-cols-3 gap-4"
+                    className="absolute z-10 left-0 mt-2 w-96 bg-white shadow-lg rounded-md p-4 grid grid-cols-4 gap-4"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {servicesDropdown.columns.map((column, index) => (
@@ -160,7 +173,7 @@ const NavBar = () => {
                 </button>
                 {activeDropdown === 'regularSenders' && (
                   <div
-                    className="absolute z-10 left-0 mt-2 w-64 bg-white shadow-lg rounded-md p-4 grid grid-cols-2 gap-4"
+                    className="absolute z-10 left-0 mt-2 w-96 bg-white shadow-lg rounded-md p-4 grid grid-cols-4 gap-4"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {regularSendersDropdown.columns.map((column, index) => (
