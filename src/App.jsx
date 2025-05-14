@@ -76,17 +76,6 @@ const NavBar = () => {
 
   return (
     <div className="font-sans">
-      {/* Top bar */}
-      <div className="bg-blue-900 text-white text-sm py-1 px-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <div>Over 6 million customers | Over 1 million reviews</div>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:underline">Help</a>
-            <a href="#" className="hover:underline">Contact Us</a>
-          </div>
-        </div>
-      </div>
-
       {/* Main navigation */}
       <nav className="bg-white shadow-md">
         <div className="container mx-auto px-4">
@@ -95,7 +84,7 @@ const NavBar = () => {
             <div className="flex-shrink-0">
               <a href="#">
                 <img
-                  src="https://www.parcel2go.com/images/logo.svg"
+                  src="https://cdn.parcel2go.com/42c5534b-0f47-4342-80f0-8f21203f0669/layout/p2g_logo_new.svg"
                   alt="Parcel2Go"
                   className="h-8"
                   onError={(e) => {
