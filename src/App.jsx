@@ -1,69 +1,42 @@
 import React, { useState } from 'react';
 
 const NavBar = () => {
-  const [activeDropdown, setActiveDropdown] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const toggleDropdown = (dropdownName) => {
-    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
-  };
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleAuthState = () => {
     setIsLoggedIn(!isLoggedIn);
     setActiveDropdown(null);
   };
 
+  const toggleDropdown = (dropdownName) => {
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
+
+  // Dropdown data for Services
   const servicesDropdown = {
     title: "Services",
     columns: [
       {
         title: "Range of Couriers",
-        links: [
-          { text: "All Couriers", href: "#" },
-          { text: "Royal Mail", href: "#" },
-          { text: "FedEx Express", href: "#" },
-          { text: "ParcelForce", href: "#" },
-          { text: "UPS", href: "#" },
-          { text: "TNT", href: "#" },
-          { text: "DPD", href: "#" },
-          { text: "Yodel", href: "#" },
-          { text: "Evri", href: "#" }
-        ]
+        links: Array(19).fill({ text: "Courier Service", href: "#" })
       },
       {
         title: "UK Parcel Delivery",
-        links: [
-          { text: "All UK Delivery Services", href: "#" },
-          { text: "Postage Costs", href: "#" },
-          { text: "Same-Day Delivery", href: "#" },
-          { text: "Next-Day Delivery", href: "#" },
-          { text: "Small Parcels", href: "#" },
-          { text: "Heavy Parcels", href: "#" }
-        ]
+        links: Array(19).fill({ text: "UK Delivery Service", href: "#" })
       },
       {
         title: "International Parcel Delivery",
-        links: [
-          { text: "All International Delivery", href: "#" },
-          { text: "Economy Delivery", href: "#" },
-          { text: "Express Delivery", href: "#" },
-          { text: "USA Delivery", href: "#" },
-          { text: "Australia Delivery", href: "#" }
-        ]
+        links: Array(19).fill({ text: "International Delivery Service", href: "#" })
       },
       {
         title: "Delivery Tools",
-        links: [
-          { text: "Parcel2Go Prepay", href: "#" },
-          { text: "Postcode Finder", href: "#" },
-          { text: "Parcel Volume Calculator", href: "#" },
-          { text: "Print Your Labels", href: "#" },
-          { text: "Print a Commercial Invoice", href: "#" }
-        ]
+        links: Array(19).fill({ text: "Delivery Tool", href: "#" })
       }
     ]
   };
 
+  // Dropdown data for Regular Senders
   const regularSendersDropdown = {
     title: "Regular Senders",
     columns: [
@@ -90,18 +63,25 @@ const NavBar = () => {
         ]
       },
       {
+        title: "",
         links: [
-          { text: "API Integration", href: "#" },
-          { text: "Bulk Upload", href: "#" },
-          { text: "Volume Discounts", href: "#" },
-          { text: "Dedicated Account Manager", href: "#" }
+          { text: "eBay", href: "#" },
+          { text: "Amazon", href: "#" },
+          { text: "Etsy", href: "#" },
+          { text: "Shopify", href: "#" },
+          { text: "TikTok", href: "#" },
+          { text: "Wix", href: "#" },
         ]
       },
       {
+        title: "",
         links: [
-          { text: "Free Trial", href: "#" },
-          { text: "VIP Membership", href: "#" },
-          { text: "Customer Support", href: "#" },
+          { text: "eBay", href: "#" },
+          { text: "Amazon", href: "#" },
+          { text: "Etsy", href: "#" },
+          { text: "Shopify", href: "#" },
+          { text: "TikTok", href: "#" },
+          { text: "Wix", href: "#" },
         ]
       }
     ]
@@ -109,17 +89,6 @@ const NavBar = () => {
 
   return (
     <div className="font-sans">
-      {/* Top bar */}
-      <div className="bg-blue-900 text-white text-sm py-1 px-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <div>Over 6 million customers | Over 1 million reviews</div>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:underline">Help</a>
-            <a href="#" className="hover:underline">Contact Us</a>
-          </div>
-        </div>
-      </div>
-
       {/* Main navigation */}
       <nav className="bg-white shadow-md">
         <div className="container mx-auto px-4">
@@ -131,6 +100,10 @@ const NavBar = () => {
                   src="https://cdn.parcel2go.com/42c5534b-0f47-4342-80f0-8f21203f0669/layout/p2g_logo_new.svg"
                   alt="Parcel2Go"
                   className="h-8"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "https://via.placeholder.com/150x40?text=Parcel2Go";
+                  }}
                 />
               </a>
             </div>
@@ -154,59 +127,15 @@ const NavBar = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-
                 {activeDropdown === 'services' && (
                   <div
-                    className="absolute z-10 left-0 mt-2 w-full bg-white shadow-lg rounded-md p-4 grid grid-cols-4 gap-4"
+                    className="absolute z-10 left-0 mt-2 w-96 bg-white shadow-lg rounded-md p-4 grid grid-cols-4 gap-4"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {servicesDropdown.columns.map((column, index) => (
                       <div key={index}>
                         <h3 className="font-bold text-blue-900 mb-2">{column.title}</h3>
-                        <ul className="space-y-2 text-gray-700">
-                          {column.links.map((link, linkIndex) => (
-                            <li key={linkIndex}>
-                              <a
-                                href={link.href}
-                                className="text-gray-700 hover:text-blue-600 text-sm"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                {link.text}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Regular Senders Dropdown */}
-              <div className="relative">
-                <button
-                  className="text-gray-800 hover:text-blue-600 font-medium flex items-center"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleDropdown('regularSenders');
-                  }}
-                >
-                  Regular Senders
-                  <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-
-                {activeDropdown === 'regularSenders' && (
-                  <div
-                    className="absolute z-10 left-0 mt-2 w-full bg-white shadow-lg rounded-md p-4 grid grid-cols-4 gap-4"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {regularSendersDropdown.columns.map((column, index) => (
-                      <div key={index}>
-                        <h3 className="font-bold text-blue-900 mb-2">{column.title}</h3>
-                        <ul className="space-y-2 text-gray-700">
+                        <ul className="space-y-2">
                           {column.links.map((link, linkIndex) => (
                             <li key={linkIndex}>
                               <a
@@ -227,6 +156,48 @@ const NavBar = () => {
               </div>
 
               <a href="#" className="text-gray-800 hover:text-blue-600 font-medium">Track a Parcel</a>
+
+              {/* Regular Senders Dropdown */}
+              <div className="relative">
+                <button
+                  className="text-gray-800 hover:text-blue-600 font-medium flex items-center"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleDropdown('regularSenders');
+                  }}
+                >
+                  Regular Senders
+                  <svg className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {activeDropdown === 'regularSenders' && (
+                  <div
+                    className="absolute z-10 left-0 mt-2 w-96 bg-white shadow-lg rounded-md p-4 grid grid-cols-4 gap-4"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {regularSendersDropdown.columns.map((column, index) => (
+                      <div key={index}>
+                        <h3 className="font-bold text-blue-900 mb-2">{column.title}</h3>
+                        <ul className="space-y-2">
+                          {column.links.map((link, linkIndex) => (
+                            <li key={linkIndex}>
+                              <a
+                                href={link.href}
+                                className="text-gray-700 hover:text-blue-600 text-sm"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {link.text}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
 
               <a href="#" className="text-gray-800 hover:text-blue-600 font-medium">Help</a>
 
@@ -249,6 +220,15 @@ const NavBar = () => {
                   <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                 </svg>
                 <span className="ml-1">{isLoggedIn ? 'Sign Out' : 'Sign In'}</span>
+              </button>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button className="text-gray-800">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               </button>
             </div>
           </div>
