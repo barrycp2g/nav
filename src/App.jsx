@@ -1,149 +1,313 @@
 import React, { useState } from 'react';
-import { ChevronDownIcon, ShoppingBagIcon, UserIcon } from '@heroicons/react/24/outline';
 
-// ——— Smart Send Dropdown ———
-function SmartSendDropdown() {
-  return (
-    <div className="fixed left-0 right-0 top-full hidden group-hover:block bg-white shadow-lg z-50 border-t border-gray-200">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-4 gap-8">
-          <div>
-            <h4 className="font-bold text-blue-900 mb-4 text-lg">Smart Send Features</h4>
-            <ul className="space-y-3 text-gray-700">
-              <li><a href="#" className="hover:text-blue-600">Bulk Send</a></li>
-              <li><a href="#" className="hover:text-blue-600">Address Book</a></li>
-              <li><a href="#" className="hover:text-blue-600">Saved Quotes</a></li>
-              <li><a href="#" className="hover:text-blue-600">API Integration</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-blue-900 mb-4 text-lg">For Business</h4>
-            <ul className="space-y-3 text-gray-700">
-              <li><a href="#" className="hover:text-blue-600">Business Account</a></li>
-              <li><a href="#" className="hover:text-blue-600">Volume Discounts</a></li>
-              <li><a href="#" className="hover:text-blue-600">Dedicated Support</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-blue-900 mb-4 text-lg">Resources</h4>
-            <ul className="space-y-3 text-gray-700">
-              <li><a href="#" className="hover:text-blue-600">Shipping Guides</a></li>
-              <li><a href="#" className="hover:text-blue-600">Packaging Tips</a></li>
-              <li><a href="#" className="hover:text-blue-600">Video Tutorials</a></li>
-            </ul>
-          </div>
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <h4 className="font-bold text-blue-900 mb-2">New to Smart Send?</h4>
-            <p className="text-sm text-gray-600 mb-3">Save time and money with our bulk shipping tools</p>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
-              Learn More
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
-// ——— Services Dropdown ———
-function ServicesDropdown() {
-  return (
-    <div className="fixed left-0 right-0 top-full hidden group-hover:block bg-white shadow-lg z-50 border-t border-gray-200">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-4 gap-8">
-          <div>
-            <h4 className="font-bold text-blue-900 mb-4 text-lg flex items-center">
-              <img src="https://cdn.parcel2go.com/icons/uk-delivery.svg" alt="UK Delivery" className="w-5 h-5 mr-2" />
-              UK Parcel Delivery
-            </h4>
-            <ul className="space-y-3 text-gray-700">
-              <li><a href="#" className="hover:text-blue-600">All UK Delivery Services</a></li>
-              <li><a href="#" className="hover:text-blue-600">Postage Costs</a></li>
-              <li><a href="#" className="hover:text-blue-600">Large Parcels</a></li>
-              <li><a href="#" className="hover:text-blue-600">Drop-Off Services</a></li>
-              <li><a href="#" className="hover:text-blue-600">Collection Services</a></li>
-              <li><a href="#" className="hover:text-blue-600">eBay Quicksend</a></li>
-              <li><a href="#" className="hover:text-blue-600">Pallet Delivery</a></li>
-              <li><a href="#" className="hover:text-blue-600">Same-Day Delivery</a></li>
-              <li><a href="#" className="hover:text-blue-600">Letters & Small Parcels</a></li>
-              <li><a href="#" className="hover:text-blue-600">Next-Day Delivery</a></li>
-              <li><a href="#" className="hover:text-blue-600">Weekend Delivery</a></li>
-              <li><a href="#" className="hover:text-blue-600">Small Parcels</a></li>
-              <li><a href="#" className="hover:text-blue-600">No Printer Couriers</a></li>
-              <li><a href="#" className="hover:text-blue-600">3 Day Delivery</a></li>
-              <li><a href="#" className="hover:text-blue-600">Heavy Parcels</a></li>
-              <li><a href="#" className="hover:text-blue-600">2 to 3 Day</a></li>
-              <li><a href="#" className="hover:text-blue-600">Express Delivery</a></li>
-              <li><a href="#" className="hover:text-blue-600">Recorded Delivery</a></li>
-              <li><a href="#" className="hover:text-blue-600">Evri Postable</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-blue-900 mb-4 text-lg flex items-center">
-              <img src="https://cdn.parcel2go.com/icons/tools.svg" alt="Tools" className="w-5 h-5 mr-2" />
-              Delivery Tools
-            </h4>
-            <ul className="space-y-3 text-gray-700">
-              <li><a href="#" className="hover:text-blue-600">Parcel2Go Prepay</a></li>
-              <li><a href="#" className="hover:text-blue-600">Postcode Finder</a></li>
-              <li><a href="#" className="hover:text-blue-600">Parcel Volume Calculator</a></li>
-              <li><a href="#" className="hover:text-blue-600">Print Your Labels</a></li>
-              <li><a href="#" className="hover:text-blue-600">Print a Commercial Invoice</a></li>
-              <li><a href="#" className="hover:text-blue-600">Rearrange Your Collection</a></li>
-              <li><a href="#" className="hover:text-blue-600">Prohibited Items</a></li>
-              <li><a href="#" className="hover:text-blue-600">Track a Parcel</a></li>
-              <li><a href="#" className="hover:text-blue-600">Content Hub</a></li>
-              <li><a href="#" className="hover:text-blue-600">Parcel Delivery Advice</a></li>
-              <li><a href="#" className="hover:text-blue-600">Mobile App</a></li>
-              <li><a href="#" className="hover:text-blue-600">Ecommerce Shipping</a></li>
-              <li><a href="#" className="hover:text-blue-600">Despatch Bay Alternative</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
-// ——— Regular Senders Dropdown ———
-function RegularSendersDropdown() {
-  return (
-    <div className="fixed left-0 right-0 top-full hidden group-hover:block bg-white shadow-lg z-50 border-t border-gray-200">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-2 gap-8">
-          <div>
-            <h4 className="font-bold text-blue-900 mb-4 text-lg">For Business</h4>
-            <ul className="space-y-3 text-gray-700">
-              <li><a href="#" className="hover:text-blue-600">Business Account</a></li>
-              <li><a href="#" className="hover:text-blue-600">Business Delivery</a></li>
-              <li><a href="#" className="hover:text-blue-600">API Integration</a></li>
-              <li><a href="#" className="hover:text-blue-600">Bulk Upload</a></li>
-              <li><a href="#" className="hover:text-blue-600">Volume Discounts</a></li>
-              <li><a href="#" className="hover:text-blue-600">Dedicated Account Manager</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold text-blue-900 mb-4 text-lg">For Ecommerce</h4>
-            <ul className="space-y-3 text-gray-700">
-              <li><a href="#" className="hover:text-blue-600">eBay Integration</a></li>
-              <li><a href="#" className="hover:text-blue-600">Amazon Integration</a></li>
-              <li><a href="#" className="hover:text-blue-600">Etsy Integration</a></li>
-              <li><a href="#" className="hover:text-blue-600">Shopify Integration</a></li>
-              <li><a href="#" className="hover:text-blue-600">WooCommerce Integration</a></li>
-              <li><a href="#" className="hover:text-blue-600">Magento Integration</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="mt-8 pt-6 border-t border-gray-200">
-          <div className="bg-blue-50 p-6 rounded-lg flex items-center">
-            <div className="flex-1">
-              <h4 className="font-bold text-blue-900 text-lg mb-2">Ready to save with a business account</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+const NavBar = () => {
 
-export { SmartSendDropdown, ServicesDropdown, RegularSendersDropdown };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+
+
+  const toggleAuthState = () => {
+
+    setIsLoggedIn(!isLoggedIn);
+
+    setActiveDropdown(null);
+
+  };
+
+
+
+  const toggleDropdown = (dropdownName) => {
+
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+
+  };
+
+
+
+  // SVG Icons
+
+  const UserIcon = () => (
+
+http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+
+    </svg>
+
+  );
+
+
+
+  const ChevronDownIcon = () => (
+
+https://www.parcel2go.com/images/logo.svg"
+
+                  alt="Parcel2Go"
+
+                  className="h-8"
+
+                  onError={(e) => {
+
+e.target.onerror = null;
+
+e.target.src = "https://via.placeholder.com/150x40?text=Parcel2Go";
+
+                  }}
+
+                />
+
+              </a>
+
+            </div>
+
+
+
+            {/* Desktop Navigation */}
+
+            <div className="hidden md:flex items-center space-x-6">
+
+              <a href="#" className="text-gray-800 hover:text-blue-600 font-medium">Smart Send</a>
+
+              <a href="#" className="text-gray-800 hover:text-blue-600 font-medium">Get a Quote</a>
+
+
+
+              {/* Services Dropdown */}
+
+              <div className="relative">
+
+                <button
+
+                  className="text-gray-800 hover:text-blue-600 font-medium flex items-center"
+
+                  onClick={(e) => {
+
+                    e.stopPropagation();
+
+                    toggleDropdown('services');
+
+                  }}
+
+                >
+
+                  Services
+
+                  <ChevronDownIcon />
+
+                </button>
+
+                {activeDropdown === 'services' && (
+
+                  <div
+
+                    className="absolute z-10 left-0 mt-2 w-96 bg-white shadow-lg rounded-md p-4 grid grid-cols-3 gap-4"
+
+                    onClick={(e) => e.stopPropagation()}
+
+                  >
+
+{servicesDropdown.columns.map((column, index) => (
+
+                      <div key={index}>
+
+                        <h3 className="font-bold text-blue-900 mb-2">{column.title}</h3>
+
+                        <ul className="space-y-2">
+
+{column.links.map((link, linkIndex) => (
+
+                            <li key={linkIndex}>
+
+                              <a
+
+                                href={link.href}
+
+                                className="text-gray-700 hover:text-blue-600 text-sm"
+
+                                target="_blank"
+
+                                rel="noopener noreferrer"
+
+                              >
+
+                                {link.text}
+
+                              </a>
+
+                            </li>
+
+                          ))}
+
+                        </ul>
+
+                      </div>
+
+                    ))}
+
+                  </div>
+
+                )}
+
+              </div>
+
+
+
+              <a href="#" className="text-gray-800 hover:text-blue-600 font-medium">Track a Parcel</a>
+
+
+
+              {/* Regular Senders Dropdown */}
+
+              <div className="relative">
+
+                <button
+
+                  className="text-gray-800 hover:text-blue-600 font-medium flex items-center"
+
+                  onClick={(e) => {
+
+                    e.stopPropagation();
+
+                    toggleDropdown('regularSenders');
+
+                  }}
+
+                >
+
+                  Regular Senders
+
+                  <ChevronDownIcon />
+
+                </button>
+
+                {activeDropdown === 'regularSenders' && (
+
+                  <div
+
+                    className="absolute z-10 left-0 mt-2 w-64 bg-white shadow-lg rounded-md p-4 grid grid-cols-2 gap-4"
+
+                    onClick={(e) => e.stopPropagation()}
+
+                  >
+
+{regularSendersDropdown.columns.map((column, index) => (
+
+                      <div key={index}>
+
+                        <h3 className="font-bold text-blue-900 mb-2">{column.title}</h3>
+
+                        <ul className="space-y-2">
+
+{column.links.map((link, linkIndex) => (
+
+                            <li key={linkIndex}>
+
+                              <a
+
+                                href={link.href}
+
+                                className="text-gray-700 hover:text-blue-600 text-sm"
+
+                                target="_blank"
+
+                                rel="noopener noreferrer"
+
+                              >
+
+                                {link.text}
+
+                              </a>
+
+                            </li>
+
+                          ))}
+
+                        </ul>
+
+                      </div>
+
+                    ))}
+
+                  </div>
+
+                )}
+
+              </div>
+
+
+
+              <a href="#" className="text-gray-800 hover:text-blue-600 font-medium">Help</a>
+
+
+
+              {/* Basket */}
+
+              <a href="#" className="text-gray-800 hover:text-blue-600">
+
+                <ShoppingBagIcon />
+
+              </a>
+
+
+
+              {/* Auth Toggle */}
+
+              <button
+
+                onClick={(e) => {
+
+                  e.stopPropagation();
+
+                  toggleAuthState();
+
+                }}
+
+                className="text-gray-800 hover:text-blue-600 flex items-center"
+
+              >
+
+                <UserIcon />
+
+                <span className="ml-1">{isLoggedIn ? 'Sign Out' : 'Sign In'}</span>
+
+              </button>
+
+            </div>
+
+
+
+            {/* Mobile menu button */}
+
+            <div className="md:hidden">
+
+              <button className="text-gray-800">
+
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+
+                </svg>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </nav>
+
+    </div>
+
+  );
+
+};
+
+
+
+export default NavBar;
