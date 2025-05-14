@@ -28,7 +28,7 @@ const NavBar = () => {
 
 
 
-  // SVG Icons
+  // SVG Icons as components
 
   const UserIcon = () => (
 
