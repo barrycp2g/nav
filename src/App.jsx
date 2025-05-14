@@ -129,12 +129,12 @@ const NavBar = () => {
                 </button>
                 {activeDropdown === 'services' && (
                   <div
-                    className="absolute z-10 left-0 mt-2 w-96 bg-white shadow-lg rounded-md p-4 grid grid-cols-4 gap-4"
+                    className="absolute z-10 left-0 mt-2 w-full bg-white shadow-lg rounded-md p-4 grid grid-cols-4 gap-4"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {servicesDropdown.columns.map((column, index) => (
                       <div key={index}>
-                        <h3 className="font-bold text-blue-900 mb-2">{column.title}</h3>
+                        <h3 className="font-bold text-blue-900 mb-4">{column.title}</h3>
                         <ul className="space-y-2">
                           {column.links.map((link, linkIndex) => (
                             <li key={linkIndex}>
@@ -173,12 +173,12 @@ const NavBar = () => {
                 </button>
                 {activeDropdown === 'regularSenders' && (
                   <div
-                    className="absolute z-10 left-0 mt-2 w-96 bg-white shadow-lg rounded-md p-4 grid grid-cols-4 gap-4"
+                    className="absolute z-10 left-0 mt-2 w-full bg-white shadow-lg rounded-md p-4 grid grid-cols-4 gap-4"
                     onClick={(e) => e.stopPropagation()}
                   >
                     {regularSendersDropdown.columns.map((column, index) => (
                       <div key={index}>
-                        <h3 className="font-bold text-blue-900 mb-2">{column.title}</h3>
+                        <h3 className="font-bold text-blue-900 mb-4">{column.title}</h3>
                         <ul className="space-y-2">
                           {column.links.map((link, linkIndex) => (
                             <li key={linkIndex}>
